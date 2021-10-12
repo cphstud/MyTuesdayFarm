@@ -1,20 +1,13 @@
 package domain;
 
-public class Cat {
+public class Cat extends Animal{
     //c129,Siam,SUSAN,unmarked,WATERLOO CORNER
-    private int catID;
-    private String breed;
-    private String name;
     private boolean marked;
-    private String location;
     private int catFactor;
 
-    public Cat(int catID, String breed, String name, boolean marked, String location) {
-        this.catID = catID;
-        this.breed = breed;
-        this.name = name;
+    public Cat(int catID, String breed, String name, String location,String gender, boolean marked) {
+        super(catID,breed,name,gender);
         this.marked = marked;
-        this.location = location;
         this.catFactor = 123;
     }
 
@@ -22,4 +15,15 @@ public class Cat {
         return 0;
     }
 
+    @Override
+    public String getName() {
+        String myCatname= super.getName();
+        myCatname = "Cat "+myCatname;
+        return myCatname;
+    }
+
+    @Override
+    public int computeFoodRequirement() {
+        return catFactor*25;
+    }
 }
